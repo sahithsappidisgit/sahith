@@ -1,11 +1,12 @@
 package com.solution.rewards.service;
 
-import java.util.Map;
+import java.util.List;
 
 import com.solution.rewards.dto.PointsSummary;
+import com.solution.rewards.dto.Transaction;
 
 public interface RewardsService {
-	
-	public PointsSummary calculatePoints(Map<String,Integer> transactions); 
+
+	public PointsSummary calculatePoints(List<Transaction> transactions);
 
 }

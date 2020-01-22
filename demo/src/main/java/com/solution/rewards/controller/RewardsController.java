@@ -1,20 +1,23 @@
 package com.solution.rewards.controller;
 
-import java.util.Map;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.solution.rewards.dto.Transaction;
 import com.solution.rewards.service.RewardsService;
 import com.solution.rewards.service.RewardsServiceImpl;
 
-@RestController
+@RestController("/calculate")
 public class RewardsController {
 
-	@RequestMapping("/calculate")
-	public ResponseEntity<?> calculatePoints(Map<String,Integer> transactions) {
-		
+	@PostMapping("/rewards")
+	public ResponseEntity<?> calculatePoints(@RequestBody List<Transaction> transactions) {
+
 		if (transactions == null || transactions.isEmpty()) {
 			RewardsService rewardsService = new RewardsServiceImpl();
 			return ResponseEntity.status(HttpStatus.OK).body(rewardsService.calculatePoints(transactions));
