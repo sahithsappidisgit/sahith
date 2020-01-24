@@ -33,11 +33,11 @@ public class RewardsServiceImpl implements RewardsService {
 
 	public Integer calculatePointsPerTransaction(Integer transactionValue) {
 		Integer points = 0;
-		if (transactionValue >= 50 && transactionValue <= 100) {
-			points = transactionValue;
+		if (transactionValue >= 50 && transactionValue < 100) {
+			points = transactionValue - 50;
 		}
 		if (transactionValue >= 100) {
-			points = transactionValue * 2;
+			points = ((transactionValue - 100) * 2) + 50;
 		}
 		return points;
 	}

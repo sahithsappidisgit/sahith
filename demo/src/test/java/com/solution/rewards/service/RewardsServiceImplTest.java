@@ -19,9 +19,9 @@ class RewardServiceImplTest {
 		PointsSummary result = rewardsServiceImpl.calculatePoints(getRequest());
 		System.out.println("Response :"+result);
 
-		Integer totalRewards = 540;
-		Integer januaryRewards = 280;
-		Integer febRewards = 260;
+		Integer totalRewards = 170;
+		Integer januaryRewards = 80;
+		Integer febRewards = 90;
 
 		assertEquals(result.getTotalRewards(), totalRewards);
 		assertEquals(result.getMonthlyRewards().get("January"), januaryRewards);
@@ -42,8 +42,7 @@ class RewardServiceImplTest {
 		transaction2.setMonth("February");
 
 		List<Integer> values2 = new ArrayList<>();
-		values2.add(100);
-		values2.add(60);
+		values2.add(120);
 
 		transaction2.setTransactionValueList(values2);
 
